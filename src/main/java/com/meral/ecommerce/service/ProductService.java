@@ -20,9 +20,14 @@ public class ProductService {
 
 
 
-    public List<Product> findByName(String name)
+   /* public List<Product> findByName(String name)
     {
         return productRepository.findByNameContaining(name);
+    }
+*/
+    public Page<Product> findByNamePageable(Pageable page,String name)
+    {
+return  productRepository.findByNameContaining(page,name);
     }
 
     public List<Product> findByCategoryId(Long id)
@@ -30,6 +35,18 @@ public class ProductService {
 
         return productRepository.findByCategoryId(id);
     }
+
+
+
+    public Page<Product> findByCategoryIdPageable(Pageable page,Long id)
+    {
+        return productRepository.findByCategoryId(page,id);
+    }
+
+  public Page<Product>  getAllProductsPageable(Pageable page)
+  {
+      return productRepository.findAll(page);
+  }
 
     public Optional<Product> getProduct(Long id)
     {

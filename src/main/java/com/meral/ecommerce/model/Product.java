@@ -47,7 +47,7 @@ public class Product implements Serializable {
     private Date lastUpdated;
 
     @ManyToOne
-    @JoinColumn(name ="category_id",nullable = false)
+    @JoinColumn(name ="category_id",nullable = true)
     private ProductCategory category;
 
 
